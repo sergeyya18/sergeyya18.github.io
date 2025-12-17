@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор утечки газа через свищ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Калькулятор объёма утечки газа через свищ</h1>
+            <div class="subtitle">Расчёт выполнен согласно СТО 2-1.19-530-2011 и ГОСТ 30719.2.2015</div>
+        </header>
+        <div class="content">
+            <div class="input-section">
+                <h2>Исходные данные</h2>
+                <div class="input-group"> <label for="diameter">Диаметр свища (d) <span class="unit">м</span></label>
+                    <input type="number" id="diameter" step="0.0001" value="0.005">
+                </div>
+                <div class="input-group"> <label for="temperature">Температура газа в газопроводе (t) <span
+                            class="unit">°C</span></label> <input type="number" id="temperature" step="0.1" value="7.6">
+                </div>
+                <div class="input-group"> <label for="duration">Продолжительность локализации (τ) <span
+                            class="unit">сек</span></label> <input type="number" id="duration" step="1" value="7200">
+                </div>
+                <div class="input-group"> <label for="pressure">Давление газа в газопроводе (P<sub>t</sub>) <span
+                            class="unit">кгс/см²</span></label> <input type="number" id="pressure" step="0.1"
+                        value="17.0"> </div>
+                <div class="input-group"> <label for="density">Плотность при стандартных условиях (ρ<sub>c</sub>) <span
+                            class="unit">кг/м³</span></label> <input type="number" id="density" step="0.001"
+                        value="0.719"> </div>
+                <div class="input-group"> <label for="n2">Молярная доля N₂ в газовой смеси (x<sub>N2</sub>) <span
+                            class="unit">%</span></label> <input type="number" id="n2" step="0.00001" value="0.507">
+                </div>
+                <div class="input-group"> <label for="co2">Молярная доля CO₂ в газовой смеси (x<sub>CO2</sub>) <span
+                            class="unit">%</span></label> <input type="number" id="co2" step="0.00001" value="0.354">
+                </div>
+                <div class="warning"> <strong>Внимание:</strong> Молярные доли вводить в процентах (0.507% а не 0.00507)
+                </div> <button id="calculateBtn">Выполнить расчёт</button>
+                <div class="note">
+                    <p>Введите данные эксплуатирующей службы в поля выше. Остальные параметры будут рассчитаны
+                        автоматически.</p>
+                </div>
+            </div>
+            <div class="results-section">
+                <h2>Результаты расчёта</h2>
+                <div class="result-grid">
+                    <div class="result-card">
+                        <div class="result-title">Абсолютное давление (P<sub>a</sub>)</div>
+                        <div class="result-value" id="resultPa">1.770 МПа</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-title">Абсолютная температура (T<sub>a</sub>)</div>
+                        <div class="result-value" id="resultTa">280.8 K</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-title">Площадь сечения свища (S<sub>ут</sub>)</div>
+                        <div class="result-value" id="resultS">1.96E-05 м²</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-title">Показатель адиабаты (k)</div>
+                        <div class="result-value" id="resultK">1.3027</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-title">Коэффициент сжимаемости (Z<sub>a</sub>)</div>
+                        <div class="result-value" id="resultZ">0.9560</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-title">Критическое давление (P<sub>крит</sub>)</div>
+                        <div class="result-value" id="resultPcrit">0.964 МПа</div>
+                    </div>
+                </div>
+                <div class="regime-card">
+                    <div class="regime-title" id="regimeTitle">Режим истечения: <span class="critical">Критический
+                            (звуковой)</span></div>
+                    <div class="regime-description" id="regimeDescription"> Давление окружающей среды (0.1 МПа) ниже
+                        критического давления (0.964 МПа). Газ истекает со скоростью звука. </div>
+                </div>
+                <div class="final-result">
+                    <div class="final-title">ОБЪЁМ УТЕЧКИ ГАЗА</div>
+                    <div class="final-value" id="finalValue">0.646</div>
+                    <div class="final-unit">тыс. м³</div>
+                </div>
+                <div class="formula"> Формула для критического истечения: Q = S<sub>ут</sub> · (2/(k+1))<sup>1/2</sup> ·
+                    ((2·k·293.15)/((k+1)·0.101325·T<sub>a</sub>·Z<sub>a</sub>))<sup>0.5</sup> · P<sub>a</sub> · τ </div>
+                <div class="note">
+                    <p>Расчёт выполнен по методике, соответствующей СТО 2-1.19-530-2011 и ГОСТ 30719.2.2015.</p>
+                    <p>Коэффициент сжимаемости Z<sub>a</sub> рассчитан точным методом (0.9560), а не упрощённым (0.976).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
