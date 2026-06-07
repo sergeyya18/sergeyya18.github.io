@@ -4,97 +4,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор утечки газа через свищ</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Портфолио — WordPress & PHP Разработчик</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+
+        header {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            font-weight: 500;
+        }
+
+        .nav-links a {
+            color: #334155;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.6rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: #1e2937;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .tech-stack {
+            font-size: 0.95rem;
+            color: var(--primary);
+            background: #eff6ff;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            margin-bottom: 16px;
+        }
+
+        .project-card h3 {
+            font-size: 1.45rem;
+            margin-bottom: 12px;
+            color: #1e2937;
+        }
+
+        .project-card h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .project-card h3 a:hover {
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: #64748b;
+            margin-bottom: 20px;
+            min-height: 48px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 26px;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        footer {
+            background: #1e2937;
+            color: #cbd5e1;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 20px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>Калькулятор объёма утечки газа через свищ</h1>
-            <div class="subtitle">Расчёт выполнен согласно СТО 2-1.19-530-2011 и ГОСТ 30719.2.2015</div>
-        </header>
-        <div class="content">
-            <div class="input-section">
-                <h2>Исходные данные</h2>
-                <div class="input-group"> <label for="diameter">Диаметр свища (d) <span class="unit">м</span></label>
-                    <input type="number" id="diameter" step="0.0001" value="0.005">
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Портфолио</div>
+                <div class="nav-links">
+                    <a href="#personal">Личные проекты</a>
+                    <a href="#studio">Студийные проекты</a>
+                    <a href="#about">Обо мне</a>
                 </div>
-                <div class="input-group"> <label for="temperature">Температура газа в газопроводе (t) <span
-                            class="unit">°C</span></label> <input type="number" id="temperature" step="0.1" value="7.6">
+            </nav>
+        </div>
+    </header>
+
+    <section id="personal">
+        <div class="container">
+            <h2 class="section-title">Одни из последних личных проектов</h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Кастомная тема на Underscores</span>
+                    <h3><a href="https://appska.ru/" target="_blank">Appska.ru</a></h3>
+                    <p>Перформанс-агентство мобильного маркетинга. Полностью рукописная тема WordPress.</p>
+                    <a href="https://appska.ru/" target="_blank" class="btn">Перейти на сайт →</a>
                 </div>
-                <div class="input-group"> <label for="duration">Продолжительность локализации (τ) <span
-                            class="unit">сек</span></label> <input type="number" id="duration" step="1" value="7200">
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Кастомная тема на Underscores</span>
+                    <h3><a href="https://digital-odin.ru/" target="_blank">Digital-Odin.ru</a></h3>
+                    <p>Рекламное диджитал-агентство. Полностью рукописная тема WordPress.</p>
+                    <a href="https://digital-odin.ru/" target="_blank" class="btn">Перейти на сайт →</a>
                 </div>
-                <div class="input-group"> <label for="pressure">Давление газа в газопроводе (P<sub>t</sub>) <span
-                            class="unit">кгс/см²</span></label> <input type="number" id="pressure" step="0.1"
-                        value="17.0"> </div>
-                <div class="input-group"> <label for="density">Плотность при стандартных условиях (ρ<sub>c</sub>) <span
-                            class="unit">кг/м³</span></label> <input type="number" id="density" step="0.001"
-                        value="0.719"> </div>
-                <div class="input-group"> <label for="n2">Молярная доля N₂ в газовой смеси (x<sub>N2</sub>) <span
-                            class="unit">%</span></label> <input type="number" id="n2" step="0.00001" value="0.507">
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Кастомная тема на Underscores</span>
+                    <h3><a href="https://mostelefilm.ru/" target="_blank">Mostelefilm.ru</a></h3>
+                    <p>Студия производства кино и сериалов. Полностью рукописная тема.</p>
+                    <a href="https://mostelefilm.ru/" target="_blank" class="btn">Перейти на сайт →</a>
                 </div>
-                <div class="input-group"> <label for="co2">Молярная доля CO₂ в газовой смеси (x<sub>CO2</sub>) <span
-                            class="unit">%</span></label> <input type="number" id="co2" step="0.00001" value="0.354">
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Кастомная тема на Underscores</span>
+                    <h3><a href="https://motorsport-technology.ru/" target="_blank">Motorsport-Technology.ru</a></h3>
+                    <p>Автосервис по ремонту BMW. Полностью рукописная тема WordPress.</p>
+                    <a href="https://motorsport-technology.ru/" target="_blank" class="btn">Перейти на сайт →</a>
                 </div>
-                <div class="warning"> <strong>Внимание:</strong> Молярные доли вводить в процентах (0.507% а не 0.00507)
-                </div> <button id="calculateBtn">Выполнить расчёт</button>
-                <div class="note">
-                    <p>Введите данные эксплуатирующей службы в поля выше. Остальные параметры будут рассчитаны
-                        автоматически.</p>
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Натяжка шаблона</span>
+                    <h3><a href="https://ezkino.pro/" target="_blank">Ezkino.pro</a></h3>
+                    <p>Студия компьютерной графики и 3D-анимации.</p>
+                    <a href="https://ezkino.pro/" target="_blank" class="btn">Перейти на сайт →</a>
                 </div>
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Кастомная тема на Underscores</span>
+                    <h3><a href="https://gaz-181.ru/" target="_blank">Gaz-181.ru</a></h3>
+                    <p>Магазин газового оборудования. Полностью рукописная тема WordPress.</p>
+                    <a href="https://gaz-181.ru/" target="_blank" class="btn">Перейти на сайт →</a>
+                </div>
+
             </div>
-            <div class="results-section">
-                <h2>Результаты расчёта</h2>
-                <div class="result-grid">
-                    <div class="result-card">
-                        <div class="result-title">Абсолютное давление (P<sub>a</sub>)</div>
-                        <div class="result-value" id="resultPa">1.770 МПа</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-title">Абсолютная температура (T<sub>a</sub>)</div>
-                        <div class="result-value" id="resultTa">280.8 K</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-title">Площадь сечения свища (S<sub>ут</sub>)</div>
-                        <div class="result-value" id="resultS">1.96E-05 м²</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-title">Показатель адиабаты (k)</div>
-                        <div class="result-value" id="resultK">1.3027</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-title">Коэффициент сжимаемости (Z<sub>a</sub>)</div>
-                        <div class="result-value" id="resultZ">0.9560</div>
-                    </div>
-                    <div class="result-card">
-                        <div class="result-title">Критическое давление (P<sub>крит</sub>)</div>
-                        <div class="result-value" id="resultPcrit">0.964 МПа</div>
-                    </div>
+            <p
+                style="text-align: center; max-width: 800px; margin: 100px auto 50px; color: #64748b; font-size: 1.1rem;">
+                Ранее занимался разработкой и поддержкой всех сайтов анимационной студии «Паровоз».<br>
+                Студийные проекты выполнены на <strong>LEMP (основной сайт) и Wordpress + GenerationPress тема</strong>.
+            </p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <span class="tech-stack">PHP (чистый, без CMS)</span>
+                    <h3><a href="https://parovoz.tv/" target="_blank">Parovoz.tv</a></h3>
+                    <p>Главный сайт анимационной студии «Паровоз».</p>
+                    <a href="https://parovoz.tv/" target="_blank" class="btn">Перейти на сайт →</a>
                 </div>
-                <div class="regime-card">
-                    <div class="regime-title" id="regimeTitle">Режим истечения: <span class="critical">Критический
-                            (звуковой)</span></div>
-                    <div class="regime-description" id="regimeDescription"> Давление окружающей среды (0.1 МПа) ниже
-                        критического давления (0.964 МПа). Газ истекает со скоростью звука. </div>
-                </div>
-                <div class="final-result">
-                    <div class="final-title">ОБЪЁМ УТЕЧКИ ГАЗА</div>
-                    <div class="final-value" id="finalValue">0.646</div>
-                    <div class="final-unit">тыс. м³</div>
-                </div>
-                <div class="formula"> Формула для критического истечения: Q = S<sub>ут</sub> · (2/(k+1))<sup>1/2</sup> ·
-                    ((2·k·293.15)/((k+1)·0.101325·T<sub>a</sub>·Z<sub>a</sub>))<sup>0.5</sup> · P<sub>a</sub> · τ </div>
-                <div class="note">
-                    <p>Расчёт выполнен по методике, соответствующей СТО 2-1.19-530-2011 и ГОСТ 30719.2.2015.</p>
-                    <p>Коэффициент сжимаемости Z<sub>a</sub> рассчитан точным методом (0.9560), а не упрощённым (0.976).
-                    </p>
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress</span>
+                    <h3><a href="https://blog.parovoz.tv/" target="_blank">Blog.Parovoz.tv</a></h3>
+                    <p>Блог анимационной студии «Паровоз».</p>
+                    <a href="https://blog.parovoz.tv/" target="_blank" class="btn">Перейти на сайт →</a>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="script.js"></script>
+    </section>
+
+    <section id="studio" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">Студийные проекты</h2>
+            <p
+                style="text-align: center; max-width: 800px; margin: 100px auto 50px; color: #64748b; font-size: 1.1rem;">
+                Работаю в веб-агенстве разработчиком. Занимаюсь, как разработкой с нуля, так и доработкой существеющих
+                студийных сайтов. В таких проектах используем один и тот же стек:<br/><strong>Wordpress + Elementor +
+                    Crocoblock</strong>. (Одни из последних проектов)
+            </p>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Elementor + Crocoblock</span>
+                    <h3><a href="https://specauto-dn.ru/" target="_blank">Specauto-dn.ru</a></h3>
+                    <p>Аренда спецтехники в ДНР.</p>
+                    <a href="https://specauto-dn.ru/" target="_blank" class="btn">Перейти на сайт →</a>
+                </div>
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Elementor + Crocoblock</span>
+                    <h3><a href="https://autosox96.ru/" target="_blank">Autosox96.ru</a></h3>
+                    <p>Срочный выкуп автомобилей в Екатеринбурге.</p>
+                    <a href="https://autosox96.ru/" target="_blank" class="btn">Перейти на сайт →</a>
+                </div>
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Elementor + Crocoblock</span>
+                    <h3><a href="https://krovlya-mak.ru/" target="_blank">Krovlya-mak.ru</a></h3>
+                    <p>Кровельные и фасадные работы.</p>
+                    <a href="https://krovlya-mak.ru/" target="_blank" class="btn">Перейти на сайт →</a>
+                </div>
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Elementor + Crocoblock</span>
+                    <h3><a href="https://fakturasalon.com/" target="_blank">Fakturasalon.com</a></h3>
+                    <p>Интернет-магазин мебели.</p>
+                    <a href="https://fakturasalon.com/" target="_blank" class="btn">Перейти на сайт →</a>
+                </div>
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Elementor + Crocoblock</span>
+                    <h3><a href="https://imperia-holoda.ru/" target="_blank">Imperia-holoda.ru</a></h3>
+                    <p>Интернет-магазин климатической техники.</p>
+                    <a href="https://imperia-holoda.ru/" target="_blank" class="btn">Перейти на сайт →</a>
+                </div>
+
+                <div class="project-card">
+                    <span class="tech-stack">WordPress • Elementor + Crocoblock</span>
+                    <h3><a href="https://egorov-les.ru/" target="_blank">Egorov-les.ru</a></h3>
+                    <p>Поставка и обработка пиломатериалов.</p>
+                    <a href="https://egorov-les.ru/" target="_blank" class="btn">Перейти на сайт →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="background: #f1f5f9;">
+        <div class="container">
+            <h2 class="section-title">Обо мне</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.15rem; color: #475569;">
+                <p>Специализируюсь на создании сайтов на WordPress: кастомные темы (Underscores), сложные проекты на
+                    Elementor + Crocoblock, а также чистый PHP.</p> Различные CMS (Tilda, Wordpress, Shopify, Webflow и пр.)
+                <p style="margin-top: 25px;">В сфере с 2019 года. Делаю акцент на скорость, чистый код и удобство
+                    использования.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 15px; font-size: 1.1rem;">Готов к новым проектам</p>
+            <p>Связаться со мной: <a style="color:#cbd5e1;" href="https://t.me/sergey_yakovenko">Telegram</a> / <a style="color:#cbd5e1;" href="https://vk.com/yakovenko.sergey">Vk</a></p>
+            <p style="margin-top: 40px; font-size: 0.9rem; opacity: 0.7;">© 2026</p>
+        </div>
+    </footer>
 </body>
 
 </html>
